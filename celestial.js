@@ -113,7 +113,6 @@ Celestial.display = function(config) {
 
   if (cfg.location === true || cfg.formFields.location === true) {
     d3.select("#location").style("display", "inline-block");
-    fldEnable("horizon-show", proj.clip);
     fldEnable("daylight-show", !proj.clip);
   }
   
@@ -398,7 +397,6 @@ Celestial.display = function(config) {
     }
     
     if (cfg.location || cfg.formFields.location) { 
-      fldEnable("horizon-show", prj.clip);
       fldEnable("daylight-show", !prj.clip);
     }
     
@@ -645,7 +643,7 @@ Celestial.display = function(config) {
       }
     }
 
-    if ((cfg.location || cfg.formFields.location) && cfg.horizon.show && !proj.clip) {
+    if ((cfg.location || cfg.formFields.location) && cfg.horizon.show) {
       circle.origin(Celestial.nadir());
       setStyle(cfg.horizon);
       container.selectAll(".horizon").datum(circle).attr("d", map);  
